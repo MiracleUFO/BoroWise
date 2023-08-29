@@ -1,0 +1,8 @@
+# dependencies
+node_modules/
+
+# bundle
+dist/
+
+# local env files
+.env*.local
