@@ -87,7 +87,6 @@ export function AuthProvider(props: { children: ReactElement }) {
 
   useEffect(() => {
     AsyncStorage.getItem('borowise-user').then((userCache) => {
-      console.log('\nUSER CACHE', userCache);
       if (userCache) setAuth(JSON.parse(userCache));
     });
   }, []);

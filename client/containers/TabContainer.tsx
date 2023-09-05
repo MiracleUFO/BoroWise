@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 type TabContent = {
@@ -68,10 +68,7 @@ const TabContainer = ({
     setActiveTab(tabIndex);
   };
 
-  useEffect(() => console.log('STUFF'));
-
   const Content = tabContent[activeTab]?.component;
-  console.log('SHEET', Content);
 
   return (
     <View style={{ flex: 1, marginVertical: 80 }}>
