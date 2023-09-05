@@ -23,13 +23,13 @@ export const getIncompleteLoans = async (
   if (accountId) {
     const id = Number(accountId);
     const { data } = await axios.get(`${BASE_URL}/get-incomplete-loans-by-account/${id}`);
-    // eslint-disable-next-line no-console
-    console.log('Incomplete loans', data);
+
     if (data?.length > 0) {
       return data;
     }
     return [];
   }
+
   return [];
 };
 
