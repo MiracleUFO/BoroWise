@@ -4,7 +4,7 @@ module.exports = {
     es2022: true,
   },
   settings: {
-    "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx"]
+    'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx'],
   },
   extends: [
     'eslint:recommended',
@@ -19,16 +19,17 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   root: true,
-  "rules": {
-    "import/extensions": [
-       "error",
-       "ignorePackages",
-       {
-         "js": "never",
-         "jsx": "never",
-         "ts": "never",
-         "tsx": "never"
-       }
-    ]
+  rules: {
+    'react/jsx-filename-extension': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
 };

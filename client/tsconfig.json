@@ -1,6 +1,7 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "jsx": "react",
     "strict": true,
     "baseUrl": "./",
     "paths": {
@@ -15,7 +16,7 @@
     }
   },
   "include": [
-    "*.license",
+    "*.eslintrc.cjs",
     "*.ts",
     "*.tsx",
     "**/*.ts",
