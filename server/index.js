@@ -29,12 +29,12 @@ app.use(express.json());
 app.post('/sign-in', async (req, res) => {
   try {
     const { email, password } = req.body.params;
-    console.log(req.body, email);
+
     if (!req.body || !email || !password) {
       return res.status(500).json({ error: 'Email and/or password not present in the request body'});
     }
     const { rows } = await pool.query(`SELECT * FROM account WHERE email_address = '${email}' and password = '${password}'`);
-    console.log('SIGNED IN', rows);
+    console.log('SIGNED IN');
     return res.json(rows);
   } catch (error) {
     console.error(error);
@@ -76,14 +76,11 @@ app.post('/add-job', async (req, res) => {
   console.log('\n/add-job');
   try {
     const { accountId, yearlySalary, jobType, vetted } = req.body.params;
-    console.log(req.body.params);
     if (!req.body || !accountId || !yearlySalary || !jobType) {
-      console.log('PLUS')
       return res.status(500).json({ error: 'Job is not correctly specified'});
     }
 
     if (!vetted) {
-      console.log('NO PLUS')
       return res.status(500).json({ error: 'Job is not vetted'});
     }
   
@@ -93,7 +90,6 @@ app.post('/add-job', async (req, res) => {
     VALUES('${accountId}', '${yearlySalary}', '${jobType}', ${vetted}, '${dateCreated}')
     RETURNING id
     `);
-    console.log(rows);
     return res.json(rows);
   } catch (error) {
     console.error(error);
@@ -104,8 +100,6 @@ app.post('/add-job', async (req, res) => {
 app.post('/add-asset', async (req, res) => {
   try {
     const { worth, accountId, assetType, vetted } = req.body.params;
-
-    console.log(req.body.params)
 
     if (!req.body || !worth || !assetType || !accountId) {
       return res.status(500).json({ error: 'Correct parameters not sent.'});
@@ -131,7 +125,6 @@ app.post('/add-asset', async (req, res) => {
 
 app.get('/verify/:id', async (req, res) => {
   try {
-    console.log(req);
     const { id } = req.params;
   
     if (!req.params || !id) {
@@ -193,9 +186,6 @@ app.get('/get-incomplete-loans-by-account/:accountId', async (req, res) => {
 app.post('/add-loan', async (req, res) => {
   try {
     const { amountTaken, accountId, loanPlanId } = req.body.params;
-    console.log('BOOH', amountTaken, accountId, loanPlanId);
-
-    console.log(req.body.params)
 
     if (!req.body || !amountTaken || !accountId || !loanPlanId) {
       return res.status(500).json({ error: 'Correct parameters not sent.'});
