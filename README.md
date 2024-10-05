@@ -1,6 +1,10 @@
 # Borowise
 Loan app serves both the bank and loanee, non-exploitative, maximum repayment
 
+![Borowise Presentation first page: Developing an automated loan processing system for commercial banks](./screenshots/presentation_first_page.png)
+
+
+
 # TO RUN BOTH CLIENT AND SERVER
 yarn run dev
 
